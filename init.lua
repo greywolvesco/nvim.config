@@ -6,8 +6,8 @@ end
 ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require 'vim-options'
-require 'vim-keymaps'
+require 'options'
+require 'keymaps'
 require 'autocommands'
 
 require('lazy').setup 'custom.plugins'
