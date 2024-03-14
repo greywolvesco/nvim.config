@@ -22,6 +22,7 @@ return {
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'windwp/nvim-autopairs',
     -- If you want to add a bunch of pre-configured snippets,
     --    you can use this plugin to help you. It even has snippets
     --    for various frameworks/libraries/etc. but you will have to
@@ -31,8 +32,13 @@ return {
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
+    local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
+
+    require('nvim-autopairs').setup()
+
+    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
     cmp.setup {
       snippet = {
