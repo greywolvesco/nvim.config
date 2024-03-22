@@ -13,10 +13,10 @@ map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]ui
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
-map('n', '<left>', '<cmd>echo "Use h to move left!"<CR>')
-map('n', '<right>', '<cmd>echo "Use l to move right!"<CR>')
-map('n', '<up>', '<cmd>echo "Use k to move up!"<CR>')
-map('n', '<down>', '<cmd>echo "Use j to move down!"<CR>')
+-- map('n', '<left>', '<cmd>echo "Use h to move left!"<CR>')
+-- map('n', '<right>', '<cmd>echo "Use l to move right!"<CR>')
+-- map('n', '<up>', '<cmd>echo "Use k to move up!"<CR>')
+-- map('n', '<down>', '<cmd>echo "Use j to move down!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -43,6 +43,11 @@ map('v', '<A-j>', ':m >+1<CR>gv=gv')
 map('n', '<A-k>', ':m .-2<CR>==')
 map('v', '<A-k>', ':m <-2<CR>gv=gv')
 
+-- move between tabs
+map('n', '<A-1>', ':tabprevious<CR>')
+map('n', '<A-2>', ':tabnext<CR>')
+map('n', '<A-3>', ':tabnew<CR>')
+map('n', '<A-4>', ':tabclose<CR>')
 -- new file
 map('n', '<leader>fn', '<cmd>enew<cr>', { desc = 'New file' })
 -- save file
