@@ -28,7 +28,7 @@ map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Comment or uncomment line
-map('n', '<C-\\>', function()
+map('n', '<leader>/', function()
   vim.cmd 'normal gcc'
 end, { desc = 'Comment or uncomment in normal mode' })
 

@@ -6,15 +6,9 @@ return {
     'nvim-treesitter/nvim-treesitter',
   },
   config = function()
-    -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-    --
-    -- require('go').setup {
-    --   luasnip = true,
-    --   lsp_cfg = {
-    --     capabilities = capabilities,
-    --   },
-    -- }
+    require('go').setup()
 
+    -- mappings
     local wk = require 'which-key'
 
     wk.register({
