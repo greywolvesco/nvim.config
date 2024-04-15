@@ -10,4 +10,4 @@ require 'options'
 require 'keymaps'
 require 'autocommands'
 
-require('lazy').setup 'custom.plugins'
+require('lazy').setup 'plugins'

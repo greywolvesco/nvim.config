@@ -2,6 +2,7 @@ local map = vim.keymap.set
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', ';', ':')
 
 -- Diagnostic keymaps
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -49,7 +50,7 @@ map('n', '<A-2>', ':tabnext<CR>')
 map('n', '<A-3>', ':tabnew<CR>')
 map('n', '<A-4>', ':tabclose<CR>')
 -- new file
-map('n', '<leader>fn', '<cmd>enew<cr>', { desc = 'New file' })
+map('n', '<leader>fn', '<cmd>new<cr>', { desc = 'New file' })
 -- save file
 map('n', '<leader>fs', '<cmd>w<cr>', { desc = 'Save file' })
 
@@ -59,3 +60,12 @@ map({ 'v', 'n' }, '<leader>sr', ':%s/', { desc = 'Buffer search and replace' })
 -- paste over currently selected text without yanking it
 map('v', 'p', '"_dp')
 map('v', 'P', '"_dP')
+
+map('i', '<C-f>', function()
+  vim.cmd.stopinsert()
+  vim.lsp.buf.signature_help()
+  vim.defer_fn(function()
+    vim.cmd.wincmd 'w'
+  end, 100)
+  vim.keymap.set('n', 'q', ':close<CR>', { buffer = true })
+end)
