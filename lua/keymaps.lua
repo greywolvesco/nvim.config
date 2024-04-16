@@ -10,9 +10,6 @@ map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic messa
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
-map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 -- TIP: Disable arrow keys in normal mode
 -- map('n', '<left>', '<cmd>echo "Use h to move left!"<CR>')
 -- map('n', '<right>', '<cmd>echo "Use l to move right!"<CR>')
@@ -109,3 +106,5 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
+map('n', '<Space>tt', '<Cmd>ToggleTerm<CR>i', { desc = 'Toggle Term' })
+map('t', '<Esc><Esc>', '<C-\\><C-n><Cmd>ToggleTerm<CR>', { desc = 'Exit terminal mode' })
